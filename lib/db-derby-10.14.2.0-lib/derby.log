@@ -1,0 +1,20 @@
+Mon May 09 15:44:22 NZST 2022 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Mon May 09 15:44:40 NZST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0180-a6ea-f562-ffff8e27634a 
+on database directory C:\Users\shawn\OneDrive - AUT University\Desktop\Year 2\COMP603 Program Design and Construction\Week 1\PDC_Tutorials\PDC_Tutorials\lib\db-derby-10.14.2.0-lib\BookStoreDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Users/shawn/OneDrive%20-%20AUT%20University/Desktop/Year%202/COMP603%20Program%20Design%20and%20Construction/Week%201/PDC_Tutorials/PDC_Tutorials/lib/db-derby-10.14.2.0-lib/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_321-b07
+user.dir=C:\Users\shawn\OneDrive - AUT University\Desktop\Year 2\COMP603 Program Design and Construction\Week 1\PDC_Tutorials\PDC_Tutorials\lib\db-derby-10.14.2.0-lib
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\shawn\OneDrive - AUT University\Desktop\Year 2\COMP603 Program Design and Construction\Week 1\PDC_Tutorials\PDC_Tutorials\lib\db-derby-10.14.2.0-lib
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon May 09 15:46:07 NZST 2022: Shutting down Derby engine
+----------------------------------------------------------------
+Mon May 09 15:46:07 NZST 2022:
+Shutting down instance a816c00e-0180-a6ea-f562-ffff8e27634a on database directory C:\Users\shawn\OneDrive - AUT University\Desktop\Year 2\COMP603 Program Design and Construction\Week 1\PDC_Tutorials\PDC_Tutorials\lib\db-derby-10.14.2.0-lib\BookStoreDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------
