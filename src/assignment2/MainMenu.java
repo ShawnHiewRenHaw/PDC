@@ -41,7 +41,7 @@ public class MainMenu {
         newGame.setAlignmentY(Component.CENTER_ALIGNMENT);
         newGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Story runStory = new Story(f);
+                StoryPart1 runStory = new StoryPart1(f);
                 mainMenuPanel.setVisible(false);
             }
         });

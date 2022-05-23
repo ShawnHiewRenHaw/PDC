@@ -26,7 +26,7 @@ public class GUI {
     public GUI() {
 //      Frame
         f = new JFrame();
-        f.setSize(800 , 800);
+        f.setSize(1000 , 800);
         f.setLocation(600, 150);
         f.getContentPane().setBackground(Color.BLACK);
         f.setDefaultCloseOperation(EXIT_ON_CLOSE);
