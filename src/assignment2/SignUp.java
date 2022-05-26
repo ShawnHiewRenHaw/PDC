@@ -84,36 +84,49 @@ public class SignUp {
         signUpButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 try {
-                    db = new DBManager();
-                    Statement statement = db.conn.createStatement();
-                    String dbq1 = "SELECT Playername FROM PlayerDB WHERE PlayerName =" + name.getText();
-                    ResultSet rs = statement.executeQuery(dbq1);
-                    if (rs.next()) {
-                        String dbq2 = "INSERT INTO PlayerDB (" + name.getText() + "," + password.getText() + "," + "0,0)";
-                        JOptionPane.showMessageDialog(null, "Sign Up Complete");
-                        MainMenu runMainMenu = new MainMenu(f);
-                        signUpPanel.setVisible(false);
-                        returnToTitlePanel.setVisible(false);
+                    if (!password.getText().equals(confirmPassword.getText())) {
+                        JOptionPane.showMessageDialog(null, "Sign Up Failed, passwords do not match!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Sign Up Failed");
+                        db = new DBManager();
+                        Statement statement = db.conn.createStatement();
+                        String dbq = "INSERT INTO PlayerDB values('" + name.getText() + "' , '" + password.getText() + "' , " + 0 + ")";
+                        int x = statement.executeUpdate(dbq);
+                        if (password.getText().equals(confirmPassword.getText())) {
+                            if (x == 0) {
+                                JOptionPane.showMessageDialog(null, "Sign Up Failed");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Sign Up Complete");
+                                MainMenu runMainMenu = new MainMenu(f);
+                                signUpPanel.setVisible(false);
+                                returnToTitlePanel.setVisible(false);
+                            }
+                        }
                     }
                 } catch (HeadlessException | SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Sign Up Failed, Player already exists!");
                     System.out.println(e);
                 }
 
             }
-        });
+        }
+        );
 
 //  Return to Title Panel
         returnToTitlePanel = new JPanel();
+
         returnToTitlePanel.setBackground(Color.black);
 
 //  Return to Title Button
         returnButton = new JButton("Back");
-        returnButton.setFont(new Font("Serif", Font.BOLD, 20));
+
+        returnButton.setFont(
+                new Font("Serif", Font.BOLD, 20));
         returnButton.setBackground(Color.black);
+
         returnButton.setForeground(Color.white);
+
         returnButton.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
                 Title runTitle = new Title(f);
                 signUpPanel.setVisible(false);

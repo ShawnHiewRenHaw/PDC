@@ -6,6 +6,9 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,6 +24,7 @@ public class MainMenu {
     JPanel mainMenuPanel;
     JButton newGame;
     JButton scoreList;
+    JButton credits;
     JButton logOut;
     JButton quitGame;
 
@@ -41,8 +45,8 @@ public class MainMenu {
         newGame.setAlignmentY(Component.CENTER_ALIGNMENT);
         newGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                StoryPart1 runStory = new StoryPart1(f);
                 mainMenuPanel.setVisible(false);
+                StoryPart1 runStory = new StoryPart1(f);
             }
         });
 
@@ -54,6 +58,26 @@ public class MainMenu {
         scoreList.setAlignmentX(Component.CENTER_ALIGNMENT);
         scoreList.setAlignmentY(Component.CENTER_ALIGNMENT);
 
+//      Credits
+        credits = new JButton("Credits");
+        credits.setFont(new Font("Serif", Font.BOLD, 20));
+        credits.setBackground(Color.black);
+        credits.setForeground(Color.white);
+        credits.setAlignmentX(Component.CENTER_ALIGNMENT);
+        credits.setAlignmentY(Component.CENTER_ALIGNMENT);
+        credits.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    mainMenuPanel.setVisible(false);
+                    Credits runCredits = new Credits(f);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+
 //      Log Out
         logOut = new JButton("Log Out");
         logOut.setFont(new Font("Serif", Font.BOLD, 20));
@@ -63,8 +87,8 @@ public class MainMenu {
         logOut.setAlignmentY(Component.CENTER_ALIGNMENT);
         logOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Title returnTitle = new Title(f);
                 mainMenuPanel.setVisible(false);
+                Title returnTitle = new Title(f);
             }
         });
 
@@ -83,6 +107,7 @@ public class MainMenu {
 
         mainMenuPanel.add(newGame);
         mainMenuPanel.add(scoreList);
+        mainMenuPanel.add(credits);
         mainMenuPanel.add(logOut);
         mainMenuPanel.add(quitGame);
         mainMenuPanel.setVisible(true);

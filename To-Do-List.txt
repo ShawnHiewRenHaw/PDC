@@ -1,0 +1,5 @@
+Need Fixes:
+credits page - add return to main menu button
+embed database - do it
+test cases - need 5 test cases
+score system - need to implemenent score system

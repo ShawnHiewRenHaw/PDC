@@ -134,7 +134,7 @@ public class StoryPart5 {
         });
 
 //      Option 3
-        option3Button = new JButton("Option 2");
+        option3Button = new JButton("Option 3");
         option3Button.setBackground(Color.black);
         option3Button.setForeground(Color.white);
         option3Button.addActionListener(new ActionListener() {
