@@ -40,7 +40,9 @@ public class StoryPart1 {
     JLabel option3ResultLabel;
     JButton option3ResultBackButton;
 
-    public StoryPart1(JFrame f) {
+    public StoryPart1(JFrame f, int score) {
+
+        int newScore = score;
 
 //      Part 1 Panel
         part1Panel = new JPanel();
@@ -66,7 +68,7 @@ public class StoryPart1 {
             public void actionPerformed(ActionEvent e) {
                 part1Panel.setVisible(false);
                 quitPanel.setVisible(false);
-                StoryPart2 runPart2 = new StoryPart2(f);
+                StoryPart2 runPart2 = new StoryPart2(f, newScore);
             }
         });
 

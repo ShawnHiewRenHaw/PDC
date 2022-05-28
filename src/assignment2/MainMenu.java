@@ -27,8 +27,12 @@ public class MainMenu {
     JButton credits;
     JButton logOut;
     JButton quitGame;
+    int score;
 
     public MainMenu(JFrame f) {
+
+//      Score
+        score = 0;
 
 //      Panel
         mainMenuPanel = new JPanel(new BorderLayout());
@@ -46,7 +50,7 @@ public class MainMenu {
         newGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 mainMenuPanel.setVisible(false);
-                StoryPart1 runStory = new StoryPart1(f);
+                StoryPart1 runStory = new StoryPart1(f, score);
             }
         });
 

@@ -89,7 +89,7 @@ public class SignUp {
                     } else {
                         db = new DBManager();
                         Statement statement = db.conn.createStatement();
-                        String dbq = "INSERT INTO PlayerDB values('" + name.getText() + "' , '" + password.getText() + "' , " + 0 + ")";
+                        String dbq = "INSERT INTO Player_EDB values('" + name.getText() + "' , '" + password.getText() + "' , " + 0 + ")";
                         int x = statement.executeUpdate(dbq);
                         if (password.getText().equals(confirmPassword.getText())) {
                             if (x == 0) {

@@ -73,7 +73,7 @@ public class Login {
                 try {
                     db = new DBManager();
                     Statement statement = db.conn.createStatement();
-                    String dbq = "Select * from PlayerDB where PlayerName = '" + login.getText() + "' AND Password = '" + password.getText() + "'";
+                    String dbq = "Select * from Player_EDB where PlayerName = '" + login.getText() + "' AND Password = '" + password.getText() + "'";
                     ResultSet rs = statement.executeQuery(dbq);
                     if (rs.next()) {
                         MainMenu runMainMenu = new MainMenu(f);

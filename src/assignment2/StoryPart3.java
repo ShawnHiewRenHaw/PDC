@@ -35,7 +35,7 @@ public class StoryPart3 {
     JPanel quitPanel;
     JButton quitButton;
 
-    public StoryPart3(JFrame f) {
+    public StoryPart3(JFrame f, int score) {
 
 //      Part 3 Panel
         part3Panel = new JPanel();
@@ -61,7 +61,7 @@ public class StoryPart3 {
             public void actionPerformed(ActionEvent e) {
                 part3Panel.setVisible(false);
                 quitPanel.setVisible(false);
-                StoryPart4 runStoryPart4 = new StoryPart4(f);
+                StoryPart4 runStoryPart4 = new StoryPart4(f, score);
             }
         });
 

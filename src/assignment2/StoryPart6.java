@@ -26,7 +26,7 @@ public class StoryPart6 {
     JPanel quitPanel;
     JButton quitButton;
 
-    public StoryPart6(JFrame f) {
+    public StoryPart6(JFrame f, int score) {
 
 //      Part 6 Panel
         part6Panel = new JPanel();
@@ -47,7 +47,7 @@ public class StoryPart6 {
                 try {
                     part6Panel.setVisible(false);
                     quitPanel.setVisible(false);
-                    StoryFinish runStoryFinish = new StoryFinish(f);
+                    StoryFinish runStoryFinish = new StoryFinish(f, score);
                 } catch (HeadlessException e) {
                     System.out.println(e);
                 }
