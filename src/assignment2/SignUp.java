@@ -1,3 +1,4 @@
+//20110958 Shawn Hiew PDC Assignment 2
 package assignment2;
 
 import java.awt.BorderLayout;
@@ -11,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -84,27 +87,35 @@ public class SignUp {
         signUpButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 try {
-                    if (!password.getText().equals(confirmPassword.getText())) {
-                        JOptionPane.showMessageDialog(null, "Sign Up Failed, passwords do not match!");
+                    if ((name.getText().isEmpty() || password.getText().isEmpty() || confirmPassword.getText().isEmpty())) {
+                        JOptionPane.showMessageDialog(null, "Sign Up Faield, Empty Fields");
                     } else {
-                        db = new DBManager();
-                        Statement statement = db.conn.createStatement();
-                        String dbq = "INSERT INTO Player_EDB values('" + name.getText() + "' , '" + password.getText() + "' , " + 0 + ")";
-                        int x = statement.executeUpdate(dbq);
-                        if (password.getText().equals(confirmPassword.getText())) {
-                            if (x == 0) {
-                                JOptionPane.showMessageDialog(null, "Sign Up Failed");
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Sign Up Complete");
-                                MainMenu runMainMenu = new MainMenu(f);
-                                signUpPanel.setVisible(false);
-                                returnToTitlePanel.setVisible(false);
+                        if (!password.getText().equals(confirmPassword.getText())) {
+                            JOptionPane.showMessageDialog(null, "Sign Up Failed, passwords do not match!");
+                        } else {
+                            db = new DBManager();
+                            Statement statement = db.conn.createStatement();
+                            String dbq = "INSERT INTO Player_EDB values('" + name.getText() + "' , '" + password.getText() + "')";
+                            int x = statement.executeUpdate(dbq);
+                            if (password.getText().equals(confirmPassword.getText())) {
+                                if (x == 0) {
+                                    JOptionPane.showMessageDialog(null, "Sign Up Failed");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Sign Up Complete");
+                                    MainMenu runMainMenu = new MainMenu(f);
+                                    signUpPanel.setVisible(false);
+                                    returnToTitlePanel.setVisible(false);
+                                }
                             }
+
                         }
+
                     }
-                } catch (HeadlessException | SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Sign Up Failed, Player already exists!");
+                } catch (HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, "Sign Up Failed");
                     System.out.println(e);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }

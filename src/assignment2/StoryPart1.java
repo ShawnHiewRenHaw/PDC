@@ -40,9 +40,7 @@ public class StoryPart1 {
     JLabel option3ResultLabel;
     JButton option3ResultBackButton;
 
-    public StoryPart1(JFrame f, int score) {
-
-        int newScore = score;
+    public StoryPart1(JFrame f) {
 
 //      Part 1 Panel
         part1Panel = new JPanel();
@@ -59,7 +57,6 @@ public class StoryPart1 {
         optionsLabel.setFont(new Font("Serif", Font.BOLD, 20));
         optionsLabel.setBackground(Color.black);
         optionsLabel.setForeground(Color.white);
-
 //      Option 1
         option1Button = new JButton("Option 1");
         option1Button.setBackground(Color.black);
@@ -68,7 +65,7 @@ public class StoryPart1 {
             public void actionPerformed(ActionEvent e) {
                 part1Panel.setVisible(false);
                 quitPanel.setVisible(false);
-                StoryPart2 runPart2 = new StoryPart2(f, newScore);
+                StoryPart2 runPart2 = new StoryPart2(f);
             }
         });
 
@@ -100,15 +97,13 @@ public class StoryPart1 {
         option2ResultPanel.add(option2ResultBackButton);
         option2ResultPanel.setVisible(false);
         option2Button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    f.add(option2ResultPanel);
-                    part1Panel.setVisible(false);
-                    option2ResultPanel.setVisible(true);
-                } catch (HeadlessException e) {
-                    System.out.println(e);
-                }
+            private int newScore;
 
+            public void actionPerformed(ActionEvent evt) {
+                f.add(option2ResultPanel);
+                part1Panel.setVisible(false);
+                option2ResultPanel.setVisible(true);
+                ++newScore;
             }
         });
 

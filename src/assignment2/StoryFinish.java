@@ -23,9 +23,8 @@ public class StoryFinish {
     JPanel finishPanel;
     JLabel finishLabel;
     JButton finishButton;
-    JLabel scoreLabel;
 
-    public StoryFinish(JFrame f, int score) {
+    public StoryFinish(JFrame f) {
 
 //      Finish Panel
         finishPanel = new JPanel();
@@ -36,12 +35,6 @@ public class StoryFinish {
         finishLabel.setFont(new Font("Serif", Font.BOLD, 20));
         finishLabel.setBackground(Color.black);
         finishLabel.setForeground(Color.white);
-
-//      Score Label
-        scoreLabel = new JLabel("Your score is " + score);
-        scoreLabel.setFont(new Font("Serif", Font.BOLD, 20));
-        scoreLabel.setBackground(Color.black);
-        scoreLabel.setForeground(Color.white);
 
 //      Finish Button
         finishButton = new JButton("Finish");

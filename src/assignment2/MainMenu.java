@@ -23,11 +23,10 @@ public class MainMenu {
 
     JPanel mainMenuPanel;
     JButton newGame;
-    JButton scoreList;
     JButton credits;
     JButton logOut;
     JButton quitGame;
-    int score;
+    final int score;
 
     public MainMenu(JFrame f) {
 
@@ -50,17 +49,9 @@ public class MainMenu {
         newGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 mainMenuPanel.setVisible(false);
-                StoryPart1 runStory = new StoryPart1(f, score);
+                StoryPart1 runStory = new StoryPart1(f);
             }
         });
-
-//      Score List
-        scoreList = new JButton("Score List");
-        scoreList.setFont(new Font("Serif", Font.BOLD, 20));
-        scoreList.setBackground(Color.black);
-        scoreList.setForeground(Color.white);
-        scoreList.setAlignmentX(Component.CENTER_ALIGNMENT);
-        scoreList.setAlignmentY(Component.CENTER_ALIGNMENT);
 
 //      Credits
         credits = new JButton("Credits");
@@ -110,7 +101,6 @@ public class MainMenu {
         quitGame.setAlignmentY(Component.CENTER_ALIGNMENT);
 
         mainMenuPanel.add(newGame);
-        mainMenuPanel.add(scoreList);
         mainMenuPanel.add(credits);
         mainMenuPanel.add(logOut);
         mainMenuPanel.add(quitGame);
